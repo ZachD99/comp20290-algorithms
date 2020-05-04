@@ -1,5 +1,3 @@
-package huffman_assignment;
-
 /******************************************************************************
  *  Compilation:  javac Huffman.java
  *
