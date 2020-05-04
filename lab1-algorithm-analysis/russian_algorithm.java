@@ -1,34 +1,27 @@
-import java.io.*;
- 
-class RussianMultiplication
-{
- public static void main(String[] args)
- {
-  //get the input numbers
-  Console con=System.console();
-  System.out.print("Enter the first number: ");
-  int num1=Integer.parseInt(con.readLine());
-  
-  System.out.print("Enter the second number: ");
-  int num2=Integer.parseInt(con.readLine());
-  int product=0;
-  
-  if(num1%2!=0)
-   product=product+num2;
-  System.out.println("Multiplicand Multiplier Product");
-  System.out.println("\t"+num1+"\t"+num2+"\t"+product);
-  while(num1!=1)
+/*
+    Java implementation of the Russian Peasants multiplication algorithm
+ */
+
+import java.lang.*;
+
+public class RussianPeasants {
+
+ static int RussianMultiply(int n, int m) {
+  int accumulator = 0;
+  while (m > 0)
   {
-   num1=num1/2;
-   num2=num2*2;
-   if(num1%2!=0)
-    product=product+num2;
-   System.out.println("\t"+num1+"\t"+num2+"\t"+product);
+   if (m % 2 == 1)
+    accumulator += n;
+   m /= 2;
+   n *= 2;
   }
-  
-  System.out.println("The product is: "+product);
+  return accumulator;
+ }
+
+ public static void main (String [] args) {
+  final long startTime = System.nanoTime();
+  System.out.println("4383 X 8238 = " + RussianMultiply(4383,8238));
+  final long elapsedTime = System.nanoTime() - startTime;
+  System.out.println("Time taken: " + elapsedTime + "ns.");
  }
 }
-
-
-
